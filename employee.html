@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="employee.js"></script>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+
+
+        body {
+            background-color: rgba(240, 230, 140, 0.815);
+
+        }
+
+        .super {
+            display: grid;
+            grid-template-areas: ' item1 item3 item2'
+                'item1 item3 item2'
+                'item1 item3 item2';
+            grid-template-columns: auto auto auto;
+            padding: 75px;
+        }
+
+        .item1 {
+            grid-area: item1;
+        }
+
+        .item2 {
+            grid-area: item2;
+        }
+
+        .main {
+            grid-area: item3;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto;
+        }
+
+        .z {
+            grid-area: z;
+        }
+
+        .f1 {
+            padding: 6px;
+            border: 2px solid black;
+            background-color: rgb(253, 183, 97);
+            height: fit-content;
+            width: fit-content;
+        }
+
+        .f2 {
+            padding: 6px;
+            border: 2px solid black;
+            background-color: rgb(253, 183, 97);
+            height: fit-content;
+            width: fit-content;
+        }
+
+        select {
+            width: 160px;
+            border: 2px solid rgb(168, 100, 17);
+            border-radius: 5px;
+        }
+
+        input[type=text] {
+            border: 2px solid rgb(168, 100, 17);
+            border-radius: 5px;
+        }
+
+        input[type=submit],
+        [type=button] {
+            width: 75px;
+            padding: 1px;
+            font-weight: bolder;
+            border: 2px solid rgb(168, 100, 17);
+            border-radius: 5px;
+            background-color: rgba(240, 230, 140, 0.815);
+        }
+
+        label {
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        h2 {
+            position: relative;
+            top: 50px;
+            border: 2px solid black;
+            width: fit-content;
+            padding: 5px 10px;
+            border-radius: 50px;
+            background-color: rgb(253, 183, 97);
+        }
+
+        @media (max-width: 726px) {
+            .main {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto auto auto auto auto;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h2>Employee Details Form</h2>
+    </center>
+    <div class="super">
+        <div class="item1"></div>
+        <div class="main">
+            <div class="f"></div>
+            <div class="f1">
+                <center>
+                    <form>
+                        <table>
+                            <tr>
+                                <td><label for="name">Name </label></td>
+                                <td> <input type="text" name="" id="name"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-nm"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">email </label></td>
+                                <td><input type="text" name="" id="email"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-em"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="mobile">Mobile </label></td>
+                                <td> <input type="text" name="" id="mobile"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-mn"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Empcode</label></td>
+                                <td><input type="text" name="" id="empcode"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-empcode"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Gender</label></td>
+                                <td><select name="" id="gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-gender"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Country </label></td>
+                                <td><select name="" id="country">
+                                        <option value="">Select Country</option>
+                                        <option value="india">India</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-country"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">State</label></td>
+                                <td><select class="form-control" id="inputState" onchange="statefn()">
+                                        <option value="">Select State</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-state"></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">City </label></td>
+                                <td> <select class="form-control" id="city">
+                                        <option value="">Select City</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span id="err-city"></span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 10px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <center><input type="button" value="Save" onclick="save()"></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 7px;"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
+            </div>
+            <div class="f3"></div>
+            <div class="f2">
+                <center>
+                    <form onsubmit="false">
+                        <table>
+                            <tr>
+                                <td><label for="name">Name </label></td>
+                                <td> <input type="text" name="mm" id="search-1"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">email </label></td>
+                                <td><input type="text" name="mm" id="search-2"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="mobile">Mobile </label></td>
+                                <td> <input type="text" name="mm" id="search-3"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Empcode </label></td>
+                                <td><input type="text" name="mm" id="search-4"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Gender </label></td>
+                                <td><select name="mm" id="search-5">
+                                        <!--<option name="mm" value="" id="search-5"></option>-->
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">Country</label></td>
+                                <td><select name="mm" id="search-6">
+                                        <option value="">Select Country</option>
+                                        <option value="india">India</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">State </label></td>
+                                <td><select name="mm" id="search-7" onchange="statefnSearch()">
+                                        <option value="SelectState">Select State</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="empcode">City</label></td>
+                                <td><select name="" id="search-8">
+                                        <option value="">Select City</option>
+
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><span></span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 10px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span id="search-err"></span>
+                                    <center><input type="button" value="Search" onclick="search()"></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 7px;"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </center>
+            </div>
+            <div class="f4"></div>
+        </div>
+        <div class="item2"></div>
+    </div>
+</body>
+
+</html>
